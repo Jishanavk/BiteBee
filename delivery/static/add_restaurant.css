@@ -1,0 +1,65 @@
+/* Page center */
+.admin-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#f5f6fa;
+}
+
+/* Card */
+.admin-card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    width:400px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.admin-card h1{
+    margin-bottom:25px;
+    font-size:24px;
+    color:#1f1f1f;
+}
+
+/* Form group */
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#333;
+}
+
+.form-group input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+.form-group input:focus{
+    border-color:#1f1f1f;
+}
+
+/* Button */
+.admin-btn{
+    width:100%;
+    padding:12px;
+    background:#1f1f1f;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.admin-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Order Summary{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'customer_menu.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="order-page">
+    <div class="order-card">
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h1>
+            Thank you for your order, {{ username }}!
+        </h1>
+
+        <p class="order-message">
+            Your delicious food is being prepared 🍴
+        </p>
+
+            
+        <div class="address-section">
+
+            <h2>
+                Delivery Address
+            </h2>
+
+            <p>
+                {{ customer.address }}
+            </p>
+
+        </div>
+
+        <p class="delivery-message">
+            Your order will be delivered shortly.  
+            Thank you for choosing Bite Bee ❤️
+        </p>
+
+        {% if cart_items %}
+
+            <a href="{% url 'view_menu' cart_items.0.restaurant_id username %}" class="back-btn">Back to Restaurant</a>
+
+        {% else %}
+            <a href="{% url 'say_hello' %}" class="back-btn" > Back to Home </a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

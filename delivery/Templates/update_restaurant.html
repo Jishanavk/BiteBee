@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Update Restaurant{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'show_restaurant.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-container">
+
+    <div class="admin-card">
+
+        <h1>Update Restaurant</h1>
+
+        <form action="{% url 'update_restaurant' restaurant.id %}" method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Restaurant Name</label>
+                <input 
+                    type="text" 
+                    name="name" 
+                    value="{{ restaurant.name }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Picture URL</label>
+                <input 
+                    type="text" 
+                    name="picture" 
+                    value="{{ restaurant.picture }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Cuisine</label>
+                <input 
+                    type="text" 
+                    name="cuisine" 
+                    value="{{ restaurant.cuisine }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Rating</label>
+                <input type="number" name="rating" min="0" max="5"step="0.5"value="{{ restaurant.rating }}" required>
+            </div>
+
+            <button type="submit" class="admin-btn">
+                Update Restaurant
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

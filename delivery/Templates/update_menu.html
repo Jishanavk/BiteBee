@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Update Menu{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'show_restaurant.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="menu-container">
+
+    <h1 class="page-title">
+        Menu Items — {{ restaurant.name }}
+    </h1>
+
+    <p>
+        <a href="{% url 'open_show_restaurant' %}">Show restaurants</a>
+    </p>
+
+    <table class="admin-table">
+
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Picture</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Veg</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in itemList %}
+            <tr>
+
+                <td>{{ item.name }}</td>
+
+                <td>
+                    <img src="{{ item.picture }}">
+                </td>
+
+                <td>{{ item.description }}</td>
+
+                <td>₹ {{ item.price }}</td>
+
+                <td>
+                    {% if item.vegetarian %}
+                        🌱
+                    {% else %}
+                        🍗
+                    {% endif %}
+                </td>
+
+                <td>
+
+                    <a href="{% url 'open_edit_menu_item' restaurant.id item.id %}">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'delete_menu_item' restaurant.id item.id %}">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <div class="form-card">
+
+        <h2>Add Food Item</h2>
+
+        <form action="{% url 'update_menu' restaurant.id %}" method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Item Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="url" name="picture">
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" name="description" required>
+            </div>
+
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" name="price" required>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="vegetarian" name="vegetarian">
+                <label for="vegetarian">Vegetarian</label>
+            </div>
+
+            <button type="submit" class="admin-btn">
+                Add Item
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

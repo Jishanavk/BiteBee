@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'customer_menu.css' %}">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="checkout-page">
+
+    <div class="checkout-card">
+
+        <h1>
+            Checkout
+        </h1>
+
+        <p class="welcome-text">
+            Welcome, {{ username }} 👋
+        </p>
+        {% if error %}
+            <p class="error-message">
+                {{ error }}
+            </p>
+        {% else %}
+        <div class="order-summary">
+
+            {% for item in cart_items %}
+
+            <div class="order-item">
+                <span>
+                    {{ item.name }}
+                </span>
+                <span>
+                    ₹ {{ item.price }}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="total-section">
+            <h2>
+                Total: ₹ {{ total_price }}
+            </h2>
+        </div>
+
+        <button id="rzp-button" class="pay-btn">
+            Pay with Razorpay
+        </button>
+        {% endif %}
+    </div>
+</div>
+
+    
+    <script>
+        var options = {
+            "key": "{{ razorpay_key_id }}",
+            "amount": "{{ amount_paise }}",
+            "currency": "INR",
+            "name": "Bite Bee",
+            "description": "Order Payment",
+            "order_id": "{{ order_id }}",
+            "handler": function (response) {
+                alert("Payment Successful!");
+                window.location.href = "{% url 'orders' username %}"
+            },
+            "prefill": {
+                "name": "{{ username }}",
+                "email": "customer@example.com",
+                "contact": "9999999999"
+            },
+            "theme": {
+                "color": "#528FF0"
+            }
+        };
+        var rzp = new Razorpay(options);
+
+        var payBtn = document.getElementById('rzp-button');
+        if (payBtn) {
+            payBtn.onclick = function (e) {
+                rzp.open();
+                e.preventDefault();
+            };
+        }
+    </script>
+{% endblock %}

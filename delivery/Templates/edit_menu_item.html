@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Edit Menu Item{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'show_restaurant.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="edit-container">
+
+    <div class="edit-card">
+
+        <h1>
+            Edit Menu Item
+        </h1>
+
+        <h3 class="restaurant-name">
+            {{ restaurant.name }}
+        </h3>
+
+        <a href="{% url 'open_update_menu' restaurant.id %}" class="back-btn">
+            ← Back to Menu
+        </a>
+
+        <form action="{% url 'edit_menu_item' restaurant.id item.id %}" method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Item Name</label>
+                <input 
+                    type="text"
+                    name="name"
+                    value="{{ item.name }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Image URL</label>
+                <input 
+                    type="url"
+                    name="picture"
+                    value="{{ item.picture }}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <input 
+                    type="text"
+                    name="description"
+                    value="{{ item.description }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Price</label>
+                <input 
+                    type="number"
+                    name="price"
+                    value="{{ item.price }}"
+                    required
+                >
+            </div>
+
+            <div class="checkbox-group">
+
+                <input 
+                    type="checkbox"
+                    id="vegetarian"
+                    name="vegetarian"
+                    {% if item.vegetarian %}checked{% endif %}
+                >
+
+                <label for="vegetarian">
+                    Vegetarian
+                </label>
+
+            </div>
+
+            <button type="submit" class="admin-btn">
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

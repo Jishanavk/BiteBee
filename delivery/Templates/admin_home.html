@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'admin.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-container">
+    <div class="admin-card">
+        <h1>
+            Admin Dashboard 🛠️
+        </h1>
+        <p>
+            Manage restaurants and food delivery operations.
+        </p>
+
+        <div class="admin-actions">
+            <a href="{% url 'open_add_restaurant' %}" class="admin-btn">
+                ➕ Add New Restaurant
+            </a>
+            <a href="{% url 'open_show_restaurant' %}" class="admin-btn secondary">
+                🍽️ Show Restaurants
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

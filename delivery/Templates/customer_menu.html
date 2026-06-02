@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Customer Menu{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'customer_menu.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="menu-header">
+
+    <div>
+        <h1>
+            Welcome, {{ username }} 👋
+        </h1>
+
+        <p>
+            Explore delicious dishes from this restaurant
+        </p>
+    </div>
+
+    <a href="{% url 'show_cart' username %}" class="cart-btn">
+        🛒 Go to Cart
+    </a>
+
+</div>
+
+{% if messages %}
+
+<div class="toast-container">
+
+    {% for message in messages %}
+
+        <div class="toast-message">
+            {{ message }}
+        </div>
+
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<div class="food-grid">
+    {% for item in itemList %}
+
+    <div class="food-card">
+
+        <img src="{{ item.picture }}" alt="{{ item.name }}">
+
+        <div class="food-content">
+
+            <div class="food-top">
+
+                <h2>
+                    {{ item.name }}
+                </h2>
+
+                <span class="price">
+                    ₹ {{ item.price }}
+                </span>
+
+            </div>
+
+            <p class="description">
+                {{ item.description }}
+            </p>
+
+            <p class="veg-status">
+
+                {% if item.vegetarian %}
+                    🌱 Vegetarian
+                {% else %}
+                    🍗 Non-Vegetarian
+                {% endif %}
+
+            </p>
+
+            <a href="{% url 'add_to_cart' item.id username %}" class="cart-add-btn">
+                Add to Cart
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+/* CENTER PAGE */
+
+.main-content{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ADMIN CONTAINER */
+
+.admin-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ADMIN CARD */
+
+.admin-card{
+    background:white;
+    width:100%;
+    max-width:550px;
+    padding:50px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* HEADING */
+
+.admin-card h1{
+    font-size:42px;
+    color:#1f1f1f;
+    margin-bottom:15px;
+}
+
+/* DESCRIPTION */
+
+.admin-card p{
+    color:#666;
+    font-size:17px;
+    margin-bottom:40px;
+}
+
+/* BUTTON AREA */
+
+.admin-actions{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* BUTTON */
+
+.admin-btn{
+    text-decoration:none;
+    background:#f4b400;
+    color:#1f1f1f;
+    padding:18px;
+    border-radius:16px;
+    font-size:18px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+/* SECOND BUTTON */
+
+.admin-btn.secondary{
+    background:#1f1f1f;
+    color:white;
+}
+
+/* HOVER */
+
+.admin-btn:hover{
+    transform:translateY(-3px);
+    opacity:0.95;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+    .admin-card{
+        padding:35px 25px;
+    }
+    .admin-card h1{
+        font-size:32px;
+    }
+
+}
+
+

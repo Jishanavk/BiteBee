@@ -1,0 +1,500 @@
+/* Page */
+.menu-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px;
+    background:#f8f9fb;
+}
+
+.menu-header h1{
+    font-size:36px;
+    color:#1f1f1f;
+    margin-bottom:8px;
+}
+
+.menu-header p{
+    color:#666;
+}
+
+/* Cart button */
+.cart-btn{
+    text-decoration:none;
+    background:#1f1f1f;
+    color:white;
+    padding:14px 24px;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.cart-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
+
+/* Food grid */
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+    padding:40px;
+}
+
+/* Card */
+.food-card{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-6px);
+}
+
+/* Image */
+.food-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+/* Content */
+.food-content{
+    padding:24px;
+}
+
+/* Top section */
+.food-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+/* Title */
+.food-top h2{
+    font-size:24px;
+    color:#1f1f1f;
+}
+
+/* Price */
+.price{
+    font-size:18px;
+    font-weight:700;
+    color:#1f1f1f;
+}
+
+/* Description */
+.description{
+    color:#666;
+    margin-bottom:14px;
+    line-height:1.5;
+}
+
+/* Veg status */
+.veg-status{
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+/* Button */
+.cart-add-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#1f1f1f;
+    color:white;
+    padding:12px 20px;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.cart-add-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
+
+/* Toast container */
+.toast-container{
+    position:fixed;
+    top:100px;
+    right:30px;
+    z-index:9999;
+}
+
+/* Toast message */
+.toast-message{
+    background:#1f1f1f;
+    color:white;
+    padding:16px 24px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:500;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    margin-bottom:10px;
+
+    animation:slideFade 3s forwards;
+}
+
+/* Animation */
+@keyframes slideFade{
+
+    0%{
+        opacity:0;
+        transform:translateX(50px);
+    }
+
+    10%{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+    80%{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+    100%{
+        opacity:0;
+        transform:translateX(50px);
+    }
+
+}
+
+/* SHOW CART */
+/* Header */
+.cart-header{
+    padding:40px;
+    background:#f8f9fb;
+}
+
+.cart-header h1{
+    font-size:36px;
+    color:#1f1f1f;
+    margin-bottom:10px;
+}
+
+.cart-header p{
+    color:#666;
+}
+
+/* Grid */
+.cart-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+    padding:40px;
+}
+
+/* Card */
+.cart-card{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.cart-card:hover{
+    transform:translateY(-5px);
+}
+
+/* Image */
+.cart-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+/* Content */
+.cart-content{
+    padding:24px;
+}
+
+/* Title */
+.cart-content h2{
+    font-size:24px;
+    color:#1f1f1f;
+    margin-bottom:12px;
+}
+
+/* Description */
+.cart-description{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:18px;
+}
+
+/* Price */
+.cart-price{
+    font-size:20px;
+    font-weight:700;
+    color:#1f1f1f;
+}
+
+/* Checkout */
+.checkout-section{
+    padding:40px;
+    text-align:center;
+}
+
+/* Total */
+.checkout-section h2{
+    margin-bottom:25px;
+    font-size:32px;
+    color:#1f1f1f;
+}
+
+/* Button */
+/* Button container */
+.cart-buttons{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+/* Continue shopping button */
+.continue-btn{
+    text-decoration:none;
+    background:white;
+    color:#1f1f1f;
+    padding:16px 28px;
+    border-radius:40px;
+    font-weight:600;
+    border:2px solid #1f1f1f;
+    transition:0.3s;
+}
+
+/* Continue hover */
+.continue-btn:hover{
+    background:#1f1f1f;
+    color:white;
+}
+
+/* Checkout button */
+.checkout-btn{
+    padding:16px 30px;
+    border:none;
+    background:#1f1f1f;
+    color:white;
+    border-radius:40px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* Checkout hover */
+.checkout-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
+
+
+/* CHECKOUT */
+/* Page */
+.checkout-page{
+    min-height:100vh;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+/* Card */
+.checkout-card{
+    width:500px;
+    background:white;
+    padding:40px;
+    border-radius:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Heading */
+.checkout-card h1{
+    text-align:center;
+    font-size:36px;
+    color:#1f1f1f;
+    margin-bottom:10px;
+}
+
+/* Welcome text */
+.welcome-text{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+/* Error */
+.error-message{
+    color:red;
+    text-align:center;
+    font-weight:600;
+}
+
+/* Order summary */
+.order-summary{
+    margin-bottom:30px;
+}
+
+/* Each item */
+.order-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+    font-size:16px;
+    color:#1f1f1f;
+}
+
+/* Total section */
+.total-section{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.total-section h2{
+    font-size:30px;
+    color:#1f1f1f;
+}
+
+/* Pay button */
+.pay-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    background:#1f1f1f;
+    color:white;
+    border-radius:40px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* Hover */
+.pay-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
+
+/* orders */
+/* Page */
+.order-page{
+    min-height:100vh;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+/* Card */
+.order-card{
+    width:550px;
+    background:white;
+    padding:40px;
+    border-radius:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+/* Success icon */
+.success-icon{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+/* Heading */
+.order-card h1{
+    font-size:34px;
+    color:#1f1f1f;
+    margin-bottom:10px;
+}
+
+/* Message */
+.order-message{
+    color:#666;
+    margin-bottom:30px;
+}
+
+/* Summary */
+.summary-section{
+    text-align:left;
+    margin-bottom:30px;
+}
+
+/* Summary heading */
+.summary-section h2{
+    margin-bottom:20px;
+    color:#1f1f1f;
+}
+
+/* Each item */
+.summary-item{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+    color:#1f1f1f;
+}
+
+/* Total */
+.total-paid{
+    margin-bottom:30px;
+}
+
+.total-paid h2{
+    font-size:28px;
+    color:#1f1f1f;
+}
+
+/* Address */
+.address-section{
+    background:#f8f9fb;
+    padding:20px;
+    border-radius:18px;
+    margin-bottom:25px;
+}
+
+.address-section h2{
+    margin-bottom:10px;
+    color:#1f1f1f;
+}
+
+.address-section p{
+    color:#555;
+    line-height:1.6;
+}
+
+/* Delivery message */
+.delivery-message{
+    color:#666;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+/* Button */
+.back-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#1f1f1f;
+    color:white;
+    padding:14px 28px;
+    border-radius:35px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+/* Hover */
+.back-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}

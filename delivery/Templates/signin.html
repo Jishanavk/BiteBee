@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'signin.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="signin-container">
+
+    <div class="signin-card">
+
+        <h1>Welcome Back 🐝</h1>
+
+        <p>
+            Sign in to continue ordering your favorite food.
+        </p>
+
+        <form action="{% url 'signin' %}" method="POST">
+
+            {% csrf_token %}
+
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="signin-btn">Sign In</button>
+        </form>
+
+        <div class="signup-text">
+            Don’t have an account?
+            <a href="{% url 'open_signup' %}">
+                Create Account
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

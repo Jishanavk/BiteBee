@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Customer Home{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'customer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="customer-header">
+    <h1>
+        Welcome, {{ username }} 👋
+    </h1>
+    <p>
+        Discover delicious food from nearby restaurants.
+    </p>
+</div>
+
+<div class="restaurant-grid">
+
+    {% for r in restaurantList %}
+
+    <div class="restaurant-card">
+        <img src="{{ r.picture }}" alt="{{ r.name }}">
+        <div class="restaurant-content">
+            <h2>
+                {{ r.name }}
+            </h2>
+            <p class="cuisine">
+                🍽️ {{ r.cuisine }}
+            </p>
+            <p class="rating">
+                ⭐ {{ r.rating_stars }}
+            </p>
+            <a href="{% url 'view_menu' r.id username %}" class="menu-btn">
+                View Menu
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

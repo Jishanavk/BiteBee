@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BiteBee{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="hero-left">
+
+        <h1 class="brand-name">
+            BiteBee 🐝
+        </h1>
+
+        <h2 class="main-heading">
+            Craving something delicious?
+        </h2>
+
+        <h3 class="sub-heading">
+            BiteBee delivers happiness to your doorstep 🐝
+        </h3>
+
+        <p class="hero-description">
+            Order food from your favorite restaurants with
+            fast delivery, secure payments, and seamless ordering.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'open_signup' %}" class="primary-btn">
+                Create Account
+            </a>
+
+            <div class="signin-section">
+
+                <span>
+                    Already have an account?
+                </span>
+
+                <a href="{% url 'open_signin' %}" class="signin-link">
+                    Sign In
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+        alt="Food Delivery">
+
+    </div>
+
+</section>
+
+{% endblock %}

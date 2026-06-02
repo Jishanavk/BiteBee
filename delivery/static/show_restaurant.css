@@ -1,0 +1,377 @@
+/* Background */
+.table-container{
+    padding:40px;
+    background:#f4f6f9;
+    min-height:100vh;
+}
+
+/* Table */
+.admin-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.admin-table thead{
+    background:#1f1f1f;
+    color:white;
+}
+
+.admin-table th{
+    padding:18px;
+    font-size:16px;
+}
+
+/* Body */
+.admin-table td{
+    padding:20px;
+    text-align:center;
+    vertical-align:middle;
+    border-bottom:1px solid #eee;
+}
+
+/* Small rounded image */
+.admin-table img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+/* Buttons */
+.admin-table a{
+    display:inline-block;
+    margin:4px;
+    padding:8px 14px;
+    background:#1f1f1f;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:13px;
+    transition:0.3s;
+}
+
+.admin-table a:hover{
+    background:#333;
+}
+
+
+/* update restaurant */
+/* Page background */
+.admin-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#f4f6f9;
+    padding:40px;
+}
+
+/* Card */
+.admin-card{
+    width:420px;
+    background:white;
+    padding:35px;
+    border-radius:24px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Heading */
+.admin-card h1{
+    margin-bottom:25px;
+    color:#1f1f1f;
+    font-size:28px;
+    text-align:center;
+}
+
+/* Form spacing */
+.form-group{
+    margin-bottom:20px;
+}
+
+/* Labels */
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+/* Inputs */
+.form-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    outline:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+/* Input focus */
+.form-group input:focus{
+    border-color:#1f1f1f;
+    box-shadow:0 0 0 3px rgba(0,0,0,0.05);
+}
+
+/* Button */
+.admin-btn{
+    width:100%;
+    padding:14px;
+    background:#1f1f1f;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* Button hover */
+.admin-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
+
+
+/* UPDATE MENU */
+/* Page */
+.menu-container{
+    padding:40px;
+    background:#f4f6f9;
+    min-height:100vh;
+}
+
+/* Title */
+.page-title{
+    margin-bottom:25px;
+    color:#1f1f1f;
+    font-size:32px;
+}
+
+/* Table */
+.admin-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom:40px;
+}
+
+/* Header */
+.admin-table thead{
+    background:#1f1f1f;
+    color:white;
+}
+
+.admin-table th{
+    padding:18px;
+}
+
+/* Body */
+.admin-table td{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+/* Hover */
+.admin-table tbody tr:hover{
+    background:#fafafa;
+}
+
+/* Images */
+.admin-table img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+/* Buttons */
+.admin-table a{
+    display:inline-block;
+    margin:4px;
+    padding:8px 14px;
+    background:#1f1f1f;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:13px;
+    transition:0.3s;
+}
+
+.admin-table a:hover{
+    background:#333;
+}
+
+/* Form card */
+.form-card{
+    width:450px;
+    background:white;
+    padding:35px;
+    border-radius:24px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Form title */
+.form-card h2{
+    margin-bottom:25px;
+    color:#1f1f1f;
+}
+
+/* Form group */
+.form-group{
+    margin-bottom:20px;
+}
+
+/* Labels */
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+/* Inputs */
+.form-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    outline:none;
+    transition:0.3s;
+}
+
+/* Focus */
+.form-group input:focus{
+    border-color:#1f1f1f;
+}
+
+/* Checkbox */
+.checkbox-group{
+    margin-bottom:20px;
+}
+
+/* Button */
+.admin-btn{
+    width:100%;
+    padding:14px;
+    background:#1f1f1f;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.admin-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
+
+/* EDIT MENU */
+/* Page */
+.edit-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#f4f6f9;
+    padding:40px;
+}
+
+/* Card */
+.edit-card{
+    width:450px;
+    background:white;
+    padding:35px;
+    border-radius:24px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Heading */
+.edit-card h1{
+    text-align:center;
+    margin-bottom:8px;
+    color:#1f1f1f;
+    font-size:30px;
+}
+
+/* Restaurant name */
+.restaurant-name{
+    text-align:center;
+    color:#666;
+    margin-bottom:20px;
+}
+
+/* Back button */
+.back-btn{
+    display:inline-block;
+    margin-bottom:25px;
+    text-decoration:none;
+    color:#1f1f1f;
+    font-weight:600;
+}
+
+/* Form groups */
+.form-group{
+    margin-bottom:20px;
+}
+
+/* Labels */
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+/* Inputs */
+.form-group input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    outline:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+/* Focus */
+.form-group input:focus{
+    border-color:#1f1f1f;
+    box-shadow:0 0 0 3px rgba(0,0,0,0.05);
+}
+
+/* Checkbox */
+.checkbox-group{
+    margin-bottom:25px;
+}
+
+/* Main button */
+.admin-btn{
+    width:100%;
+    padding:14px;
+    background:#1f1f1f;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* Hover */
+.admin-btn:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
