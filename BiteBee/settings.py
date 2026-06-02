@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@sheqj6wv40o+16_#(e!o2=irf#!3@+=74@(cr@t$ctr985z^5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://bitebee.onrender.com"]
+ALLOWED_HOSTS = ["bitebee.onrender.com"]
 
 
 
