@@ -28,7 +28,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["bitebee.onrender.com"]
 
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://bitebee.onrender.com"
+]
 
 # Application definition
 
