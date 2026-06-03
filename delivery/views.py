@@ -19,39 +19,45 @@ def open_signup(request):
 def open_signin(request):
     return render(request, "delivery/signin.html")
 def signup(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        email = request.POST.get('email')
-        mobile = request.POST.get('mobile')
-        address = request.POST.get('address')
-    try:
-            Customer.objects.get(username = username)
-            return HttpResponse("Duplicate username")
-    except:
-            Customer.objects.create(
-                username = username,
-                password = password,
-                email = email,
-                mobile = mobile,
-                address = address,
-            )
-    return render(request, 'delivery/signin.html')   
+    if request.method != 'POST':
+        return redirect('open_signup')
+
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    email = request.POST.get('email')
+    mobile = request.POST.get('mobile')
+    address = request.POST.get('address')
+
+    if Customer.objects.filter(username=username).exists():
+        return HttpResponse("Duplicate username")
+
+    Customer.objects.create(
+        username=username,
+        password=password,
+        email=email,
+        mobile=mobile,
+        address=address,
+    )
+    return render(request, 'delivery/signin.html')
 
 def signin(request):
-    if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+    if request.method != 'POST':
+        return redirect('open_signin')
+
+    username = request.POST.get('username')
+    password = request.POST.get('password')
 
     try:
-        Customer.objects.get(username = username, password = password)
+        Customer.objects.get(username=username, password=password)
         if username == 'admin':
             return render(request, 'delivery/admin_home.html')
-        else:
-            restaurantList = Restaurant.objects.all()
-            return render(request, 'delivery/customer_home.html',{"restaurantList" : restaurantList, "username" : username})
+        restaurantList = Restaurant.objects.all()
+        return render(request, 'delivery/customer_home.html', {
+            "restaurantList": restaurantList,
+            "username": username,
+        })
     except Customer.DoesNotExist:
-        return render(request, 'delivery/fail.html')   
+        return render(request, 'delivery/fail.html')
 
 def open_add_restaurant(request):
     return render(request, 'delivery/add_restaurant.html')
@@ -68,10 +74,10 @@ def add_restaurant(request):
             return HttpResponse("Duplicate restaurant!")
         except:
             Restaurant.objects.create(
-                name = name,
-                picture = picture,
-                cuisine = cuisine,
-                rating = rating,
+                name=name,
+                picture=picture,
+                cuisine=cuisine,
+                rating=float(rating),
             )
     return render(request, 'delivery/admin_home.html')
 
@@ -121,10 +127,9 @@ def update_menu(request, restaurant_id):
         price = request.POST.get('price')
         vegetarian = request.POST.get('vegetarian') == 'on'
 
-        try:
-            Item.objects.get(name = name)
-            return HttpResponse("Duplicate item!")
-        except:
+        if Item.objects.filter(restaurant=restaurant, name=name).exists():
+            return HttpResponse("Duplicate item for this restaurant!")
+        else:
             Item.objects.create(
                 restaurant = restaurant,
                 name = name,
@@ -151,8 +156,8 @@ def edit_menu_item(request, restaurant_id, item_id):
         price = request.POST.get("price")
         vegetarian = request.POST.get("vegetarian") == "on"
 
-        if Item.objects.filter(name=name).exclude(id=item.id).exists():
-            return HttpResponse("Duplicate item name!")
+        if Item.objects.filter(restaurant=restaurant, name=name).exclude(id=item.id).exists():
+            return HttpResponse("Duplicate item name for this restaurant!")
 
         item.name = name
         if picture:
@@ -205,7 +210,8 @@ def checkout(request, username):
     total_price = cart.total_price() if cart else 0
 
     if total_price == 0:
-        return render(request, 'checkout.html', {
+        return render(request, 'delivery/checkout.html', {
+            'username': username,
             'error': 'Your cart is empty!',
         })
 
