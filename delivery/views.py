@@ -11,13 +11,13 @@ from .models import Customer , Restaurant, Item , Cart
 # Create your views here.
 def say_hello(request):
     #return HttpResponse('Say Hello my app is working!')
-    return render(request, "index.html")
+    return render(request, "delivery/index.html")
 
 def open_signup(request):
-    return render(request, "signup.html")
+    return render(request, "delivery/signup.html")
 
 def open_signin(request):
-    return render(request, "signin.html")
+    return render(request, "delivery/signin.html")
 def signup(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -36,7 +36,7 @@ def signup(request):
                 mobile = mobile,
                 address = address,
             )
-    return render(request, 'signin.html')   
+    return render(request, 'delivery/signin.html')   
 
 def signin(request):
     if request.method == 'POST':
@@ -46,15 +46,15 @@ def signin(request):
     try:
         Customer.objects.get(username = username, password = password)
         if username == 'admin':
-            return render(request, 'admin_home.html')
+            return render(request, 'delivery/admin_home.html')
         else:
             restaurantList = Restaurant.objects.all()
-            return render(request, 'customer_home.html',{"restaurantList" : restaurantList, "username" : username})
+            return render(request, 'delivery/customer_home.html',{"restaurantList" : restaurantList, "username" : username})
     except Customer.DoesNotExist:
-        return render(request, 'fail.html')   
+        return render(request, 'delivery/fail.html')   
 
 def open_add_restaurant(request):
-    return render(request, 'add_restaurant.html')
+    return render(request, 'delivery/add_restaurant.html')
 
 def add_restaurant(request):
     if request.method == 'POST':
@@ -73,14 +73,14 @@ def add_restaurant(request):
                 cuisine = cuisine,
                 rating = rating,
             )
-    return render(request, 'admin_home.html')
+    return render(request, 'delivery/admin_home.html')
 
 def open_show_restaurant(request):
     restaurantList = Restaurant.objects.all()
-    return render(request, 'show_restaurant.html',{"restaurantList" : restaurantList})
+    return render(request, 'delivery/show_restaurant.html',{"restaurantList" : restaurantList})
 def open_update_restaurant(request, restaurant_id):
     restaurant = Restaurant.objects.get(id = restaurant_id)
-    return render(request, 'update_restaurant.html', {"restaurant" : restaurant})
+    return render(request, 'delivery/update_restaurant.html', {"restaurant" : restaurant})
 
 def update_restaurant(request, restaurant_id):
     restaurant = Restaurant.objects.get(id = restaurant_id)
@@ -98,19 +98,19 @@ def update_restaurant(request, restaurant_id):
         restaurant.save()
 
     restaurantList = Restaurant.objects.all()
-    return render(request, 'show_restaurant.html', {"restaurantList" : restaurantList})    
+    return render(request, 'delivery/show_restaurant.html', {"restaurantList" : restaurantList})    
         
 def delete_restaurant(request, restaurant_id):
     restaurant = Restaurant.objects.get(id = restaurant_id)
     restaurant.delete()
 
     restaurantList = Restaurant.objects.all()
-    return render(request, 'show_restaurant.html',{"restaurantList" : restaurantList})
+    return render(request, 'delivery/show_restaurant.html',{"restaurantList" : restaurantList})
 
 def open_update_menu(request,restaurant_id):
     restaurant = Restaurant.objects.get(id = restaurant_id)
     itemList = restaurant.items.all()
-    return render(request, 'update_menu.html',{"itemList" : itemList, "restaurant" : restaurant})
+    return render(request, 'delivery/update_menu.html',{"itemList" : itemList, "restaurant" : restaurant})
 
 def update_menu(request, restaurant_id):
     restaurant = Restaurant.objects.get(id = restaurant_id)
@@ -134,12 +134,12 @@ def update_menu(request, restaurant_id):
                 picture = picture,
             )
     itemList = restaurant.items.all()
-    return render(request, 'update_menu.html', {"itemList": itemList, "restaurant": restaurant})
+    return render(request, 'delivery/update_menu.html', {"itemList": itemList, "restaurant": restaurant})
 
 def open_edit_menu_item(request, restaurant_id, item_id):
     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
     item = get_object_or_404(Item, id=item_id, restaurant=restaurant)
-    return render(request, "edit_menu_item.html", {"restaurant": restaurant, "item": item})
+    return render(request, "delivery/edit_menu_item.html", {"restaurant": restaurant, "item": item})
 
 def edit_menu_item(request, restaurant_id, item_id):
     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
@@ -163,20 +163,20 @@ def edit_menu_item(request, restaurant_id, item_id):
         item.save()
 
     itemList = restaurant.items.all()
-    return render(request, "update_menu.html", {"itemList": itemList, "restaurant": restaurant})
+    return render(request, "delivery/update_menu.html", {"itemList": itemList, "restaurant": restaurant})
 
 def delete_menu_item(request, restaurant_id, item_id):
     restaurant = get_object_or_404(Restaurant, id=restaurant_id)
     item = get_object_or_404(Item, id=item_id, restaurant=restaurant)
     item.delete()
     itemList = restaurant.items.all()
-    return render(request, "update_menu.html", {"itemList": itemList, "restaurant": restaurant})
+    return render(request, "delivery/update_menu.html", {"itemList": itemList, "restaurant": restaurant})
 
 def view_menu(request,restaurant_id,username):
     restaurant = Restaurant.objects.get(id = restaurant_id)
     itemList = restaurant.items.all()
     #itemList = Item.objects.all()
-    return render(request, 'customer_menu.html', {"itemList" : itemList, "restaurant" : restaurant, "username" : username})
+    return render(request, 'delivery/customer_menu.html', {"itemList" : itemList, "restaurant" : restaurant, "username" : username})
 
 
 def add_to_cart(request,item_id,username):
@@ -195,7 +195,7 @@ def show_cart(request, username):
     items = cart.items.all() if cart else []
     total_price = cart.total_price() if cart else 0
     
-    return render(request, 'show_cart.html',{"itemList" : items, "total_price" : total_price, "username":username})
+    return render(request, 'delivery/show_cart.html',{"itemList" : items, "total_price" : total_price, "username":username})
 
 def checkout(request, username):
     # Fetch customer and their cart
@@ -222,14 +222,14 @@ def checkout(request, username):
     try:
         order = client.order.create(data=order_data)
     except Exception:
-        return render(request, 'checkout.html', {
+        return render(request, 'delivery/checkout.html', {
             'username': username,
             'cart_items': cart_items,
             'total_price': total_price,
             'error' : "Payment service is currently unreachable. Please check your internet/proxy settings and try again.",
     })
 
-    return render(request, 'checkout.html', {
+    return render(request, 'delivery/checkout.html', {
          'username': username,
         'cart_items': cart_items,
         'total_price': total_price,
@@ -253,7 +253,7 @@ def orders(request, username):
     if cart:
         cart.items.clear()
 
-    return render(request, 'orders.html', {
+    return render(request, 'delivery/orders.html', {
         'username': username,
         'customer': customer,
         'cart_items': cart_items,
