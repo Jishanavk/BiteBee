@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-@sheqj6wv40o+16_#(e!o2=irf#!3@+=74@(cr@t$ctr985z^5
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['bitebee.onrender.com', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -24,6 +24,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -32,6 +33,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'BiteBee.urls'
 
 TEMPLATES = [
@@ -71,6 +73,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Razorpay test keys — replace with your own from https://dashboard.razorpay.com/
 RAZORPAY_KEY_ID = 'rzp_test_SsIIpg7NayqG2N'
