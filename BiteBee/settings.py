@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@sheqj6wv40o+16_#(e!o2=irf#!3@+=74@(cr@t$ctr985z^5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["bitebee.onrender.com"]
 
@@ -122,5 +122,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-RAZORPAY_KEY_ID = 'rzp_test_SsIIpg7NayqG2N'
-RAZORPAY_KEY_SECRET = 'GIJkse1QVCPDNH12bIY5rHJq'
+SECRET_KEY = os.environ.get("SECRET_KEY")
+RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID")
+RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET")
