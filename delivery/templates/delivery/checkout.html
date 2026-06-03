@@ -53,7 +53,6 @@
     </div>
 </div>
 
-    
     <script>
         var options = {
             "key": "{{ razorpay_key_id }}",
@@ -63,8 +62,7 @@
             "description": "Order Payment",
             "order_id": "{{ order_id }}",
             "handler": function (response) {
-                alert("Payment Successful!");
-                window.location.href = "{% url 'orders' username %}"
+                window.location.href = "{% url 'orders' username %}?paid=success";
             },
             "prefill": {
                 "name": "{{ username }}",

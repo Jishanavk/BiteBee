@@ -15,6 +15,12 @@
             ✅
         </div>
 
+        {% if payment_success %}
+        <p class="payment-success-banner">
+            Payment successful!
+        </p>
+        {% endif %}
+
         <h1>
             Thank you for your order, {{ username }}!
         </h1>

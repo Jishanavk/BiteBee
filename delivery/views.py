@@ -1,11 +1,10 @@
-from django.shortcuts import get_object_or_404, render ,redirect
-from django.http import HttpResponse
 import razorpay
-from django.contrib import messages
 from django.conf import settings
+from django.contrib import messages
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
 
-
-from .models import Customer , Restaurant, Item , Cart 
+from .models import Cart, Customer, Item, Restaurant
 
 
 # Create your views here.
@@ -264,4 +263,5 @@ def orders(request, username):
         'customer': customer,
         'cart_items': cart_items,
         'total_price': total_price,
+        'payment_success': request.GET.get('paid') == 'success',
     })
